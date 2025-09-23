@@ -7,7 +7,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aqui você pode adicionar lógica de autenticação
+
     alert(`Usuário: ${username}\nSenha: ${password}`);
   };
 
@@ -36,6 +36,10 @@ function Login() {
         />
 
         <button type="submit">Entrar</button>
+        <div className='containerRodapeLogin'>
+          <a href="cadastro.jsx">Não tenho cadastro</a><br />
+          <a href="recuperacao.jsx">Esqueci minha senha</a>
+        </div>
       </form>
     </div>
   );

@@ -1,13 +1,19 @@
-/* Container geral centralizado na tela */
+:root{
+--cor-primaria: black;
+--cor-secundaria: gray;
+--cor-fundo: #f0f2f5;
+}
+
+
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f0f2f5;
+  background-color: var(--cor-fundo)
 }
 
-/* Formulário de login */
+
 .login-form {
   background-color: white;
   padding: 30px 40px;
@@ -17,14 +23,14 @@
   box-sizing: border-box;
 }
 
-/* Título */
+
 .login-form h2 {
   margin-bottom: 20px;
   text-align: center;
   color: #333;
 }
 
-/* Labels */
+
 .login-form label {
   display: block;
   margin-bottom: 6px;
@@ -32,7 +38,7 @@
   color: #555;
 }
 
-/* Inputs */
+
 .login-form input {
   width: 100%;
   padding: 10px 12px;
@@ -43,7 +49,6 @@
   font-size: 14px;
 }
 
-/* Botão */
 .login-form button {
   width: 100%;
   padding: 12px;
@@ -60,3 +65,18 @@
 .login-form button:hover {
   background-color: #0056b3;
 }
+
+.containerRodapeLogin{
+  margin: 10px;
+}
+
+.containerRodapeLogin a{
+  text-decoration: none;
+  color: black;
+  transition: 0.3s;
+}
+
+.containerRodapeLogin a:hover{
+  color: #0056b3;
+}
+
