@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import '../styles/loginStyle.css';
 
 function Login() {
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState([]);
   const [form, setForm] = useState({nome:'', email:'', password:''});
 
 useEffect (()=>{
-  const dadosSalvos = JSON.parse(localStorage.getItem('username'));
+  const dadosSalvos = JSON.parse(localStorage.getItem('username')) || [];
   setUsername(dadosSalvos);
 },[]);
 
@@ -17,18 +17,21 @@ const handleChange = (e) => {
     e.preventDefault();
 
     const novosUsuarios = [...username, form];
-    setForm(novosUsuarios);
-    localStorage.setItem('usuarios', JSON.stringify(novosUsuarios));
-
-    setForm({nome:'', email:'', password:''});
+    setUsername(novosUsuarios);
+    localStorage.setItem('username', JSON.stringify(novosUsuarios));
 
             alert(`
             Nome: ${form.nome}
             Email: ${form.email}
             Senha: ${form.password}
           `);
+
+              setForm({nome:'', email:'', password:''});
+
   };
 
+
+  
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
@@ -70,6 +73,7 @@ const handleChange = (e) => {
         </div>
       </form>
     </div>
+
   );
 }
 
