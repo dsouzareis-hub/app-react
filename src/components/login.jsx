@@ -6,7 +6,7 @@ function Login() {
   const [form, setForm] = useState({nome:'', email:'', password:''});
 
 useEffect (()=>{
-  const dadosSalvos = JSON.parse(localStorage.getItem('usuarios')) || [];
+  const dadosSalvos = JSON.parse(localStorage.getItem('username'));
   setUsername(dadosSalvos);
 },[]);
 
