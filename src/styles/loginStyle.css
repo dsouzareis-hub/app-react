@@ -5,12 +5,10 @@
 }
 
 .login-container {
+  display: flex;
+  gap: 20px;
   justify-content: center;
   align-items: center;
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  grid-template-rows: auto; 
-  gap: 20px;
   align-items: start;
   height: 100vh;
   background-color: var(--cor-fundo);
@@ -19,12 +17,12 @@
 }
 
 .login-form {
-  grid-column: 1;
+
   background-color: white;
   padding: 30px 40px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  width: 100%;
+  width: 350px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -69,60 +67,6 @@
 
 .login-form button:hover {
   background-color: #0056b3;
-}
-
-.containerRodapeLogin {
-  margin: 10px 0 0 0;
-  text-align: center;
-}
-
-.containerRodapeLogin a {
-  text-decoration: none;
-  color: black;
-  transition: 0.3s;
-}
-
-.containerRodapeLogin a:hover {
-  color: #0056b3;
-}
-
-
-.checkarray {
-  grid-column: 2;
-  grid-row: 1;
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  box-sizing: border-box;
-  max-height: 80vh;
-  overflow-y: auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  text-align: center;
-  font-weight: 600;
-  color: #333;
-}
-
-.checkarray ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.checkarray li {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-.checkarray li:last-child {
-  border-bottom: none;
-}
-
-.checkarray li:hover {
-  background-color: #f8f9fa;
-  cursor: pointer;
 }
 
 .rodapedoForm {
