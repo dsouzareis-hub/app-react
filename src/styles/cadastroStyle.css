@@ -5,11 +5,9 @@
 }
 
 .login-container {
-  justify-content: center;
-  align-items: center;
   display: grid;
   grid-template-columns: 320px 1fr;
-  grid-template-rows: auto; 
+  grid-template-rows: auto 1fr; 
   gap: 20px;
   align-items: start;
   height: 100vh;
@@ -18,8 +16,10 @@
   box-sizing: border-box;
 }
 
+
 .login-form {
   grid-column: 1;
+  grid-row: 1;
   background-color: white;
   padding: 30px 40px;
   border-radius: 8px;
@@ -71,25 +71,50 @@
   background-color: #0056b3;
 }
 
-.containerRodapeLogin {
+.rodapedoForm {
   margin: 10px 0 0 0;
   text-align: center;
 }
 
-.containerRodapeLogin a {
+.rodapedoForm link{
   text-decoration: none;
   color: black;
   transition: 0.3s;
 }
 
-.containerRodapeLogin a:hover {
+.rodapedoForm link:hover {
   color: #0056b3;
+}
+
+.buttonDelUser {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: start;
+  width: 100%;
+  max-width: 320px;
+}
+
+.buttonDelUser button {
+  width: 100%;
+  padding: 12px;
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.buttonDelUser button:hover {
+  background-color: #c82333;
 }
 
 
 .checkarray {
   grid-column: 2;
-  grid-row: 1;
+  grid-row: 1 / span 5;
   background-color: white;
   padding: 20px;
   border-radius: 8px;
@@ -97,12 +122,6 @@
   box-sizing: border-box;
   max-height: 80vh;
   overflow-y: auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  text-align: center;
-  font-weight: 600;
-  color: #333;
 }
 
 .checkarray ul {
@@ -123,19 +142,4 @@
 .checkarray li:hover {
   background-color: #f8f9fa;
   cursor: pointer;
-}
-
-.rodapedoForm {
-  margin: 10px 0 0 0;
-  text-align: center;
-}
-
-.rodapedoForm link{
-  text-decoration: none;
-  color: black;
-  transition: 0.3s;
-}
-
-.rodapedoForm link:hover {
-  color: #0056b3;
 }

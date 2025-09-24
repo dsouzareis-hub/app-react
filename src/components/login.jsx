@@ -1,79 +1,79 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/loginStyle.css';
+import { Link } from 'react-router-dom';
+
 
 function Login() {
   const [username, setUsername] = useState([]);
-  const [form, setForm] = useState({nome:'', email:'', password:''});
+  const [form, setForm] = useState({ email: '', password: '' });
+  const [loginMessage, setLoginMessage] = useState('');
 
-useEffect (()=>{
-  const dadosSalvos = JSON.parse(localStorage.getItem('username')) || [];
-  setUsername(dadosSalvos);
-},[]);
+  useEffect(() => {
+    const dadosSalvos = JSON.parse(localStorage.getItem('username')) || [];
+    setUsername(dadosSalvos);
+  }, []);
 
-const handleChange = (e) => {
-  setForm({...form, [e.target.name]: e.target.value});
-}
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const novosUsuarios = [...username, form];
-    setUsername(novosUsuarios);
-    localStorage.setItem('username', JSON.stringify(novosUsuarios));
+    const usuarioEncontrado = username.find(
+      (user) => user.email === form.email && user.password === form.password
+    );
 
-            alert(`
-            Nome: ${form.nome}
-            Email: ${form.email}
-            Senha: ${form.password}
-          `);
+    if (usuarioEncontrado) {
+      setLoginMessage(`Bem-vindo, ${usuarioEncontrado.nome}!`);
+    } else {
+      setLoginMessage('Email ou senha incorretos.');
+    }
 
-              setForm({nome:'', email:'', password:''});
-
+    setForm({ email: '', password: '' });
   };
 
-
-  
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
-        <label htmlFor="username">Usuário:</label>
-        <input
-          type="text"
-          name='nome'
-          id="nome"
-          value={form.nome}
-          onChange={handleChange}
-          placeholder="digite seu nome"
-          required
-        />
+
+        <label htmlFor="email">E-mail:</label>
         <input
           type="email"
-          name='email'
+          name="email"
           id="email"
           value={form.email}
           onChange={handleChange}
           placeholder="digite seu email"
           required
         />
-          <input
+
+        <label htmlFor="password">Senha:</label>
+        <input
           type="password"
-          name='password'
+          name="password"
           id="password"
           value={form.password}
           onChange={handleChange}
           placeholder="digite sua senha"
           required
-        />       
+        />
 
         <button type="submit">Entrar</button>
 
-        <div className='containerRodapeLogin'>
-          <a href="cadastro.jsx">Não tenho cadastro</a><br />
-          <a href="recuperacao.jsx">Esqueci minha senha</a>
-        </div>
+      <div className='rodapedoForm'>
+          <Link to="/Cadastro" className='link-a'>Fazer cadastro</Link><br />
+          <Link to="/Recuperacao" className='link-a'>Esqueci minha senha</Link>
+      </div>
       </form>
-    </div>
 
+      {loginMessage && (
+        <div className="checkarray">
+          <p>{loginMessage}</p>
+        </div>
+      )}
+    </div>
   );
 }
 
