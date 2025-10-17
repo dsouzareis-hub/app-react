@@ -1,22 +1,17 @@
-import './App.css';
-import Cadastro from './components/Cadastro';
-import Menu from './components/Menu';
-import Recuperacao from './components/Recuperacao';
-import Login from './components/Login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginPages from './pages/LoginPages';
+import Dashboard from './pages/Dashboard';
+import { AuthProvider } from './context/AuthContext';
 
-function App() {
+export default function App() {
   return (
-    <Router>
-      <Menu />
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/cadastro" element={<Cadastro />} />
-        <Route path="/recuperacao" element={<Recuperacao />} />
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LoginPages />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
-
-export default App;
